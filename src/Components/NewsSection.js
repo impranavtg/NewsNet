@@ -56,7 +56,7 @@ export default class NewsSection extends Component {
       <>
         <div className="heading" style={this.props.theme}>
           <h2>
-            {this.props.category == "general"
+            {this.props.category === "general"
               ? "Top Headlines"
               : `Top ${
                   this.props.category[0].toUpperCase() +
@@ -68,7 +68,7 @@ export default class NewsSection extends Component {
         <InfiniteScroll
           dataLength={this.state.articles?.length}
           next={this.fetchMoreData}
-          hasMore={this.state.articles.length != this.state.totalResults}
+          hasMore={this.state.articles.length !== this.state.totalResults}
           loader={<Spinner />}
           style={{ overflow: "hidden" }}
         >

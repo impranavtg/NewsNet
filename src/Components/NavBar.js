@@ -20,7 +20,7 @@ export default class NavBar extends Component {
         ismobile:false
     }
     themeHandler=()=>{
-        if(this.state.theme=="Light"){
+        if(this.state.theme==="Light"){
             this.props.func2("Dark");
             this.setState({
                 theme:"Dark",

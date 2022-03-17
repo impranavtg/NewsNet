@@ -25,7 +25,7 @@ export default class App extends Component {
     this.setState({ progress: progress });
   };
   themeExhcnage = (theme) => {
-    if (theme == "Dark") {
+    if (theme === "Dark") {
       this.setState({
         themechanger: "Dark",
         style: {
