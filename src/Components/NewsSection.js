@@ -78,7 +78,7 @@ export default class NewsSection extends Component {
                   return (
                     <NewsCard
                       title={element.title}
-                      description={element.description==null?element.full_description:element.description}
+                      description={element?.full_description}
                       imgUrl={element.image_url}
                       key={element.link}
                       myUrl={element.link}
