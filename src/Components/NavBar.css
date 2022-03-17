@@ -1,0 +1,230 @@
+.navbar{
+  padding: 10px 20px;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr ;
+  color: #F5F5F5;
+  background-color: #1A374D;
+  position: fixed;
+  max-width: 100%;
+  overflow:hidden;
+  top:0;
+  z-index: 10;
+  box-shadow: 0px 2px 14px 1px rgb(0 0 0 / 38%);
+    -webkit-box-shadow: 0px 2px 14px 1px rgb(0 0 0 / 38%);
+    -moz-box-shadow: 0px 2px 14px 1px rgba(0,0,0,0.38);
+}
+.logo{
+  text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  grid:1/2;
+  font-size: 2.4rem;
+  color:white;
+  font-weight: 700;
+}
+.categories{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  grid: 2/3;
+}
+.categories li{
+  list-style: none;
+}
+.categories li .cats{
+  text-decoration: none;
+  color: #F5F5F5;
+  margin: 0 10px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.categories li .cats:hover{
+  color: #FF2626;
+  cursor: pointer;
+}
+.country{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid: 3/4;
+}
+ #countryList{
+  padding: 5px 10px;
+  border:none;
+  outline: none;
+  font-size: 1.6rem;
+   color: white; 
+  cursor: pointer; 
+  border-radius: 5px;
+  background-color: transparent;
+  width: 45%;
+  font-family: inherit;
+ }
+
+#countryList option{
+  padding: 10px 20px;
+  color: white;
+}
+.mode{
+  font-size: 2rem;
+  font-weight: 500;
+  margin: 0 10px;
+}
+.navSwitch{
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      grid: 4/5;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 26px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 19px;
+    width: 19px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #FF2626;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #FF2626;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .menu{
+    display: none;
+    font-size: 3rem;
+    color: white;
+  }
+
+
+ @media (max-width:1190px){
+   .navbar{
+     grid-template-columns: 2fr 1fr 1fr 1fr;
+     grid-row-gap: 15px;
+     position: relative;
+   }
+   .logo{
+     grid-column:1/2;
+     grid-row: 1/2;
+   }
+   .categories{
+     display:none;
+   }
+   .country{
+     display: none;
+   }
+   .mobileCountry{
+     border-top: 2px solid white;
+    grid-column:4/5;
+    grid-row: 2/3;
+   }
+   .menu{
+     grid-column: 4/5;
+     display: flex;
+     justify-content: flex-end;
+     align-items: center;
+   }
+   .navSwitch{
+     grid-column: 3/4;
+   }
+   .mobileCategories{
+     grid-column: 1/4;
+     grid-row: 2/4;
+     border-top: 2px solid white;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 1s linear;
+    transform-origin: top;
+   }
+   .mobileCategories li{
+     list-style: none;
+   }
+   .mobileCategories li .cats{
+     text-decoration: none;
+     color: white;
+     font-size: 2rem;
+     font-weight: 500;
+   }
+ }
+ @media(max-width:940px){
+   .navbar{
+     grid-template-columns: 1fr 1fr 2fr 1fr;
+   }
+ }
+ @media(max-width:890px){
+   #countryList{
+     width: 100%;
+   }
+ }
+ @media(max-width:550px){
+   .mode{
+     display: none;
+   }
+ }
+ @media(max-width:448px){
+   .mobileCategories{
+     grid-column: 1/3;
+   }
+   .mobileCountry{
+     grid-column: 3/5;
+   }
+ }
+ @media(max-width:210px){
+ .navSwitch{
+   display: none;
+  }
+ }
+ @media(min-width:1440px){
+  .navbar{
+    width: 100vw;
+  }
+}
