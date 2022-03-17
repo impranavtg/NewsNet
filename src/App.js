@@ -1,4 +1,4 @@
-import "./App.css";
+import "./Css/App.css";
 import NavBar from "./Components/NavBar";
 import NewsSection from "./Components/NewsSection";
 import React, { Component } from "react";

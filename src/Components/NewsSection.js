@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import NewsCard from "./NewsCard";
-import "./NewsSection.css";
+import "../Css/NewsSection.css";
 import PropTypes from "prop-types";
 import Spinner from "./Spinner";
 import InfiniteScroll from "react-infinite-scroll-component";

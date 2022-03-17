@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import './NavBar.css';
+import '../Css/NavBar.css';
 import {Link} from "react-router-dom";
+
 export default class NavBar extends Component {
     countryHandler=()=>{ 
         let country=document.getElementById("countryList");
@@ -58,12 +59,9 @@ export default class NavBar extends Component {
                             <option value="us">Usa</option>
                         </select>
                     </div>
-                    <div className='navSwitch'>
+                    <div className='navSwitch' onClick={this.themeHandler}>
                     <h2 className='mode'>{this.state.theme} mode</h2>
-                    <label className="switch">
-                    <input type="checkbox" onClick={this.themeHandler}/>
-                    <span className="slider round"></span>
-                    </label>
+                    <i className={`fa-solid ${this.state.theme==="Light"?"fa-moon":"fa-sun"}`} id={this.state.theme==="Light"?"dark":"light"}></i>
                     </div>
                     <div className="menu">
                     <i className={this.state.ismobile?"fas fa-times":"fas fa-bars"} onClick={()=>{this.setState({ismobile:!this.state.ismobile})}}></i>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './NewsCard.css';
-import img from './Logo.jpg';
+import '../Css/NewsCard.css';
+import img from '../Images/Logo.jpg';
 export default class NewsCard extends Component {
     render() {
          let {title,description,imgUrl,myUrl,author,date}=this.props;
