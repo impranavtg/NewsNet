@@ -30,7 +30,7 @@ export default class NewsSection extends Component {
     this.props.setProgress(30);
     const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en&page=${this.state.page}`;
     this.setState({ loading: true });
-    let data = await fetch(url);
+    let data = await fetch(url, {mode: 'no-cors'});
     this.props.setProgress(50);
     let parsedJsonData = await data.json();
     this.props.setProgress(70);
@@ -45,7 +45,7 @@ export default class NewsSection extends Component {
     const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en&page=${this.state.page+1}`;
 
     this.setState({ page: this.state.page + 1 });
-    let data = await fetch(url);
+    let data = await fetch(url, {mode: 'no-cors'});
     let parsedJsonData = await data.json();
     this.setState({
       articles: this.state.articles.concat(parsedJsonData.results)
