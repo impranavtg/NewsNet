@@ -10,7 +10,7 @@ export default class NewsSection extends Component {
     super();
     this.state = {
       articles: [],
-      page: 1,
+      page: "",
       loading: false,
       totalResults: 0,
     };
@@ -28,28 +28,41 @@ export default class NewsSection extends Component {
 
   async componentDidMount() {
     this.props.setProgress(30);
-    const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en&page=${this.state.page}`;
+    const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en`;
     this.setState({ loading: true });
-    let data = await fetch(url);
-    this.props.setProgress(50);
-    let parsedJsonData = await data.json();
-    this.props.setProgress(70);
-    this.setState({
-      articles: parsedJsonData.results,
-      totalResults: parsedJsonData.totalResults,
+    // let data = await fetch(url,{mode:"no-cors"}).then(response => console.log(response));
+    fetch(url).then(res => res.json()).then(json => {
+                this.setState({
+      articles: json.results,
+      page: json.nextPage,
+      totalResults: json.totalResults,
       loading: false,
-    });
+    })})
+    
+    
+    // let parsedJsonData = await data.json();
+    this.props.setProgress(70);
+    // this.setState({
+    //   articles: parsedJsonData.results,
+    //   totalResults: parsedJsonData.totalResults,
+    //   loading: false,
+    // });
     this.props.setProgress(100);
   }
   fetchMoreData = async () => {
-    const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en&page=${this.state.page+1}`;
+    const url=`https://newsdata.io/api/1/news?apikey=${this.props.api}&country=${this.props.country}&category=${this.props.category}&language=en&page=${this.state.page}`;
 
     this.setState({ page: this.state.page + 1 });
-    let data = await fetch(url);
-    let parsedJsonData = await data.json();
-    this.setState({
-      articles: this.state.articles.concat(parsedJsonData.results)
-    });
+    fetch(url).then(res => res.json()).then(json => {
+                this.setState({
+      articles: this.state.articles.concat(json.results),
+       page: json.nextPage
+    });})
+    // let data = await fetch(url);
+    // let parsedJsonData = await data.json();
+    // this.setState({
+    //   articles: this.state.articles.concat(parsedJsonData.results)
+    // });
   };
   render() {
     return (

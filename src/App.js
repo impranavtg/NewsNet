@@ -48,7 +48,7 @@ export default class App extends Component {
       countryNews: data,
     });
   };
-  apiKey = "pub_4486c52b67b16592ce92d51cb720018ce8f0";
+  apiKey = "pub_2690068d9d1cea3e90ecab9203537ab542568";
   render() {
     
     return (
